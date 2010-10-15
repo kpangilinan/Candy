@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <style>
+      body {
+        background: black;
+        color:#CCCCCC; 
+      }
+      #c3 {
+        background-image: url(senecanopic.jpg);
+        background-repeat: no-repeat;
+      }
+      div {
+        float: left;
+        border :1px solid #444444;
+        padding:10px;
+        margin: 10px;
+        background:#3B3B3B;
+      }
+    </style>
+    <script type="text/javascript;version=1.8" src="main.js"></script>
+  </head>
+
+  <body onload="processor.doLoad()">
+    <div>
+
+      <video id="video" src="video.ogv" controls="true"/>
+    </div>
+    <div>
+      <canvas id="c1" width="160" height="96"/>
+      <canvas id="c2" width="160" height="96"/>
+      <canvas id="c3" width="160" height="96"/>
+    </div>
+  </body>
+</html>
