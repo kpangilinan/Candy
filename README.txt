@@ -7,7 +7,7 @@
   Original Authors Center for Development of Open Technology @ Seneca College
   
   Github Repo. http://github.com/kpangilinan/Candy
-  Bug Tracking http://candy-js.lighthouseapp.com
+  Bug Tracking http://webmademovies.lighthouseapp.com/projects/62229-candy-js/overview
 
   IMPORTANT! - NOTE FOR DEVELOPERS
   Please read the guidelines before pushing your code to the repository. The function(s) you are working on may already be finished and queued for push.
