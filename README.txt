@@ -1,18 +1,31 @@
-  C A N D Y . J S - @VERSION@
+  CANDY. JS - 0.1
   an effects extension to Popcorn.js
+  
+  //////////////////////////////////////////////////////////////////////////////
+  
+  License MIT (see included LICENSE)
+  Original Authors Center for Development of Open Technology @ Seneca College
+  
+  Github Repo. http://github.com/kpangilinan/Candy
+  Bug Tracking http://candy-js.lighthouseapp.com
+
+  IMPORTANT! - NOTE FOR DEVELOPERS
+  Please read the guidelines before pushing your code to the repository. The function(s) you are working on may already be finished and queued for push.
+
+  GUIDELINES
+  https://processing-js.lighthouseapp.com/projects/52212/project-workflow
+
+  IRC CHANNEL
+  Join the development team at irc://irc.mozilla.org/webmademovies for more info
 
   //////////////////////////////////////////////////////////////////////////////
-
-  License MIT (see included LICENSE)
-  Original Author Kenneth Pangilinan
-
-  Github Repo: http://github.com/kpangilinan/Candy
-  Bug Tracking: http://candy-js.lighthouseapp.com
-  Wiki:	http://zenit.senecac.on.ca/wiki/index.php/User:Kpangilinan/project
-  Demos: http://matrix.senecac.on.ca/~kpangilinan/index.xhtml
   
-
-  Various projects using video on the web need to create innovative and non-standard effects to transform the video, for example, applying filters, altering the video, using 2D and 3D effects, etc. This project will create a   library that provides some commonly needed effects (e.g., colour filters, tilt shifting, etc.). This project will overlap and support the HTML5/Video Comic Book project. 
+  PLATFORM AND BROWSER COMPATIBILITY
+  Candy.js is explicitly developed for and actively tested on browsers that
+  support the HTML5 <Video> element.
   
-
+  Candy.js aims for 100 percent compatibility across all supported browsers;
+  however, differences between individual video implementations may give
+  slightly different results.
+  
   //////////////////////////////////////////////////////////////////////////////
