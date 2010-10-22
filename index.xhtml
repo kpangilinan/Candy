@@ -6,10 +6,18 @@
         background: black;
         color:#CCCCCC; 
       }
-      #c3 {
-        background-image: url(senecanopic.jpg);
+      #c5 {
+        background-image: url(cartoon-clouds.jpg);
         background-repeat: no-repeat;
+	<!--opacity: 0.3;-->
       }
+
+      #c8 {
+        <!--background-image: url(senecanopic.jpg);-->
+        background-repeat: no-repeat;
+	<!--opacity: 0.3;-->
+      }
+
       div {
         float: left;
         border :1px solid #444444;
@@ -18,18 +26,35 @@
         background:#3B3B3B;
       }
     </style>
-    <script type="text/javascript;version=1.8" src="main.js"></script>
+    <script type="text/javascript;version=1.8" src="candy.js"></script>
   </head>
 
   <body onload="processor.doLoad()">
     <div>
-
-      <video id="video" src="video.ogv" controls="true"/>
+      <video id="video" src="http://matrix.senecac.on.ca/~kpangilinan/video.ogv" controls="true"/>
+      <p>This demo displays the possible effects that can be used with the Candy.js library.</p>
     </div>
     <div>
-      <canvas id="c1" width="160" height="96"/>
-      <canvas id="c2" width="160" height="96"/>
-      <canvas id="c3" width="160" height="96"/>
+      <table>
+      <tr><td width="25%">
+	<p>Original:</p> <canvas id="c1" width="160" height="96"/>
+      </td><td width="25%">
+	<p>Cartoon:</p> <canvas id="c2" width="160" height="96"/>
+      </td><td width="25%">
+	<p>Grayscale:</p> <canvas id="c3" width="160" height="96"/>
+      </td><td width="25%">
+	<p>Sepia:</p> <canvas id="c4" width="160" height="96"/>
+      </td></tr>
+      <tr><td width="25%">
+	<p>Green Screen:</p> <canvas id="c5" width="160" height="96"/>
+      </td><td width="25%">
+	<p>Flip:</p> <canvas id="c6" width="160" height="96"/>
+      </td><td width="25%">
+	<p>Negative:</p> <canvas id="c7" width="160" height="96"/>
+      </td><td width="25%">
+	<p>Interlaced:</p> <canvas id="c8" width="160" height="96"/>
+      </td></tr>
+      </table>
     </div>
   </body>
 </html>
