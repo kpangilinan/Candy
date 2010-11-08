@@ -3,7 +3,14 @@ var processor = {
     if (this.video.paused || this.video.ended) {
       return;
     }
-    this.specialEffect();
+    this.applyComic();
+	this.applyGrayscale();
+	this.applySepia();
+	this.applyGreenScreen();
+	this.applyFlip();
+	this.applyNegative();
+	this.applyInterlace();
+	this.applyChannel();
     var self = this;
     setTimeout(function () {
         self.timerCallback();
@@ -30,6 +37,10 @@ var processor = {
     this.ctx7 = this.c7.getContext("2d");
 	this.c8 = document.getElementById("c8");
     this.ctx8 = this.c8.getContext("2d");
+	this.c9 = document.getElementById("c9");
+    this.ctx9 = this.c9.getContext("2d");
+	this.c10 = document.getElementById("c10");
+    this.ctx10 = this.c10.getContext("2d");
 
     var self = this;
     this.video.addEventListener("play", function() {
@@ -39,7 +50,7 @@ var processor = {
       }, false);
   },
 
-	specialEffect: function() {
+	applyComic: function() {
     this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);
 	
 	//comic book effect
@@ -65,8 +76,15 @@ var processor = {
 	this.ctx2.putImageData(frame, 0, 0);
 	//end of comic book effect
 
+	return;
+  },
+
+  	applyGrayscale: function() {
+    this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);
+	
 	//black and white effect
-	frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+	var frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+	var l = frame.data.length / 4;
    for (var i = 0; i < l; i++) {
       var r = frame.data[i * 4 + 0] * .3;
       var g = frame.data[i * 4 + 1] * .59;
@@ -80,8 +98,14 @@ var processor = {
 	this.ctx3.putImageData(frame, 0, 0);
 	//end of black and white effect
 
+	return;
+  },
+
+	  applySepia: function() {
 	//sepia effect
-	frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+	var frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+	var l = frame.data.length / 4;
+
    for (var i = 0; i < l; i++) {
       var r = frame.data[i * 4 + 0];
       var g = frame.data[i * 4 + 1];
@@ -97,9 +121,13 @@ var processor = {
     }
 	this.ctx4.putImageData(frame, 0, 0);
 	//end of sepia effect
+	return;
+  },
 
+	applyGreenScreen: function() {
 	//green screen effect
-	frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+	var frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+	var l = frame.data.length / 4;
 	for (var i = 0; i < l; i++) {
       var r = frame.data[i * 4 + 0];
       var g = frame.data[i * 4 + 1];
@@ -109,16 +137,23 @@ var processor = {
     }
 	this.ctx5.putImageData(frame, 0, 0);
 	//end of green screen effect
+	return;
+  },
 
+	applyFlip: function() {
 	//flip effect
 	this.ctx6.translate(this.width, this.height);
     this.ctx6.rotate(Math.PI); //flip video
     this.ctx6.drawImage(this.video, 0, 0, this.width, this.height);
 	this.ctx6.translate(this.width, this.height); //flip video
 	//end of flip effect
+	return;
+  },
 	
+	applyNegative: function() {
 	//negative effect
-   frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+   var frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+	var l = frame.data.length / 4;
    for (var i = 0; i < l; i++) {
       var r = frame.data[i * 4 + 0];
       var g = frame.data[i * 4 + 1];
@@ -131,7 +166,10 @@ var processor = {
     }
 	this.ctx7.putImageData(frame, 0, 0);
 	//end of negative effect
+	return;
+  },
 
+	applyInterlace: function() {
 	//interlaced effect
 	this.ctx8.drawImage(this.video, 0, 0, this.width, this.height);
 	this.ctx8.fillStyle = "rgba(0, 0, 0, 0.7)";
@@ -139,7 +177,13 @@ var processor = {
 		this.ctx8.fillRect (0, i, this.width, 1.5);
 	}
 	//end of interlaced effect
-
 	return;
-  }
+  },
+	applyChannel: function() {
+	//multiple channels effect
+	this.ctx9.drawImage(this.video, 0, 0, this.width, this.height);
+	this.ctx10.drawImage(this.video, 0, 0, this.width/2, this.height/2);
+	//end of multiple channels effect
+	return;
+  },
 };
