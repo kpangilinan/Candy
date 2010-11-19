@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <style>
+      body {
+        background: black;
+        color:#CCCCCC; 
+      }
+      canvas, video, img {
+        border :1px solid #444444;
+        margin: 10px;  
+        background:#3B3B3B;
+      }
+	  
+      canvas#candy {	display: none;}
+    </style>
+    <script type="text/javascript;version=1.8" src="candy.js"></script>
+  </head>
+
+  <body onload="processor.doLoad()">	
+      <video id="video" src="http://matrix.senecac.on.ca/~kpangilinan/video.ogv" controls="true" loop="loop"/><canvas id="candy"/>
+	<table>
+		<tr><td>Instructions: (1) Select a background (2) Click on a video to apply background</td></tr>
+		<tr><td>
+			<img onclick="bg='grass.jpg'" src="grass.jpg" width="70" height="70"/>
+			<img onclick="bg='seneca.jpg'" src="seneca.jpg" width="70" height="70"/>
+			<img onclick="bg='red.jpg'" src="red.jpg" width="70" height="70"/>
+			<img onclick="bg='beach.jpg'" src="beach.jpg" width="70" height="70"/>
+			<img onclick="bg='cartoon-clouds.jpg'" src="cartoon-clouds.jpg" width="70" height="70"/>
+		</td></tr>
+		<tr><td>
+			<canvas id="c1" onclick="processor.changeEffect(this, 'greenscreen:' + bg)" data-apply-effect="greenscreen" width="160" height="96"/>
+	  		<canvas id="c2" onclick="processor.changeEffect(this, 'greenscreen:' + bg)" data-apply-effect="greenscreen" width="160" height="96"/>
+	  		<canvas id="c3" onclick="processor.changeEffect(this, 'greenscreen:' + bg)" data-apply-effect="greenscreen" width="160" height="96"/>
+		</td></tr>
+	</table>	
+  </body>
+</html>

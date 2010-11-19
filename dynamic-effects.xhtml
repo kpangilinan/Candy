@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <style>
+      body {
+        background: black;
+        color:#CCCCCC; 
+      }
+      canvas, video {
+        
+        border :1px solid #444444;
+       	
+        margin: 10px;  
+        background:#3B3B3B;
+      }
+
+	  td {
+	  	padding:10px;
+	  }
+	  
+      canvas#candy {	display: none;}
+    </style>
+    <script type="text/javascript;version=1.8" src="candy.js"></script>
+  </head>
+
+  <body onload="processor.doLoad()">
+ 		<video id="video" src="http://matrix.senecac.on.ca/~kpangilinan/video.ogv" controls="true" loop="loop"/><canvas id="candy"/>
+	  	
+		<table>
+	  		<tr>
+	  			<td colspan="2">Step 1: Select an effect</td>
+				<td colspan="1">Step 2: Click on a video</td>
+	  		</tr>
+	  		<tr>
+	  			<td>
+					<a href="#"><p onclick="effect = 'normal';">Change to normal</p></a>
+					<a href="#"><p onclick="effect = 'comic';">Change to comic</p></a>
+					<a href="#"><p onclick="effect = 'grayscale';">Change to grayscale</p></a>
+					<a href="#"><p onclick="effect = 'sepia';">Change to sepia</p></a>
+					<a href="#"><p onclick="effect = 'greenscreen';">Change to greenscreen</p></a>
+	  			</td>
+				<td>
+					<a href="#"><p onclick="effect = 'flip';">Change to flip</p></a>
+					<a href="#"><p onclick="effect = 'negative';">Change to negative</p></a>
+					<a href="#"><p onclick="effect = 'interlace';">Change to interlace</p></a>
+					<a href="#"><p onclick="effect = 'bright:2';">Change to bright</p></a>
+					<a href="#"><p onclick="effect = 'bright:-2';">Change to dark</p></a>
+				</td>
+				<td>
+					<canvas id="c1" onclick="processor.changeEffect(this, effect)" data-apply-effect="normal" width="160" height="96"/>
+					<canvas id="c2" onclick="processor.changeEffect(this, effect)" data-apply-effect="normal" width="160" height="96"/>
+					<canvas id="c3" onclick="processor.changeEffect(this, effect)" data-apply-effect="normal" width="160" height="96"/>
+				</td>
+			</tr>
+	  	</table>
+  </body>
+</html>

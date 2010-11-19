@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <style>
+      body {
+        background: black;
+        color:#CCCCCC; 
+      }
+      canvas, video {
+        border :1px solid #444444;
+        margin: 10px;  
+        background:#3B3B3B;
+      }
+      canvas#candy {	display: none;}
+    </style>
+    <script type="text/javascript;version=1.8" src="candy.js"></script>
+  </head>
+
+  <body onload="processor.doLoad()">
+      <video id="video" src="http://matrix.senecac.on.ca/~kpangilinan/video.ogv" controls="true" loop="loop"/><canvas id="candy"/>
+		<table>
+			<tr><td><p>Normal:</p><canvas id="c1" data-apply-effect="normal" width="160" height="96"/></td>
+			    <td><p>Comic:</p><canvas id="c2" data-apply-effect="comic" width="160" height="96"/></td>
+				<td><p>Grayscale:</p><canvas id="c3" data-apply-effect="grayscale" width="160" height="96"/></td>
+				<td><p>Sepia:</p><canvas id="c4" data-apply-effect="sepia" width="160" height="96"/></td>
+				<td><p>Green Screen:</p><canvas id="c5" data-apply-effect="greenscreen:cartoon-clouds.jpg" width="160" height="96"/></td>
+			</tr>
+			<tr>
+				<td><p>Flip:</p><canvas id="c6" data-apply-effect="flip" width="160" height="96"/></td>
+				<td><p>Negative:</p><canvas id="c7" data-apply-effect="negative" width="160" height="96"/></td>
+				<td><p>Interlace:</p><canvas id="c8" data-apply-effect="interlace" width="160" height="96"/></td>
+				<td><p>Bright:</p><canvas id="c9" data-apply-effect="bright:3" width="160" height="96"/></td>
+				<td><p>Dark:</p><canvas id="c10" data-apply-effect="bright:-3" width="160" height="96"/></td>
+			</tr>
+			</table>	
+  </body>
+</html>
