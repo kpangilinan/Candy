@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <script type="text/javascript;version=1.8" src="candy.js"></script>
+        <style>
+      body {
+        background: black;
+        color:#CCCCCC; 
+      }
+    </style>
+  </head>
+
+  <body>
+      <div class="original">
+            <h2>Original video</h2>
+            <video id="candy" src="../../videos/man.ogv" data-apply-effect="rgb|0|0|0" controls="true" loop="loop" preload="preload" width="330" height="190" />
+            R <button onclick="rr-=10">-</button><button onclick="rr+=10">+</button>
+            G <button onclick="gg-=10">-</button><button onclick="gg+=10">+</button>
+            B <button onclick="bb-=10">-</button><button onclick="bb+=10">+</button>
+	    <button onclick="rr=0;gg=0;bb=0">Reset</button>
+        </div>
+        <div class="output">
+            <h2>Output image</h2>
+        </div>
+  </body>
+</html>

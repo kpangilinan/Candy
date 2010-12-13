@@ -24,7 +24,7 @@
   </head>
 
   <body onload="processor.doLoad()">
- 		<video id="video" src="http://matrix.senecac.on.ca/~kpangilinan/video.ogv" controls="true" loop="loop"/><canvas id="candy"/>
+ 		<video id="video" src="../../videos/man.ogv" controls="true" loop="loop"/><canvas id="candy"/>
 	  	
 		<table>
 	  		<tr>
@@ -43,8 +43,8 @@
 					<a href="#"><p onclick="effect = 'flip';">Change to flip</p></a>
 					<a href="#"><p onclick="effect = 'negative';">Change to negative</p></a>
 					<a href="#"><p onclick="effect = 'interlace';">Change to interlace</p></a>
-					<a href="#"><p onclick="effect = 'bright:2';">Change to bright</p></a>
-					<a href="#"><p onclick="effect = 'bright:-2';">Change to dark</p></a>
+					<a href="#"><p onclick="effect = 'bright|2';">Change to bright</p></a>
+					<a href="#"><p onclick="effect = 'bright|-2';">Change to dark</p></a>
 				</td>
 				<td>
 					<canvas id="c1" onclick="processor.changeEffect(this, effect)" data-apply-effect="normal" width="160" height="96"/>
