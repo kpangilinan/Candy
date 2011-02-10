@@ -35,9 +35,12 @@
       var ch = video.height;
       canvasCopy.width = canvas.width = cw;
       canvasCopy.height = canvas.height = ch;
+video.lo
 
       video.addEventListener('play', function () {
-        draw(this, context, cw, ch); //continue to draw() until video has paused or ended
+        video.addEventListener('loadeddata', function () {
+          draw(this, context, cw, ch); //continue to draw() until video has paused or ended
+        }, false);
       }, false);
     }, false);
 
@@ -46,7 +49,7 @@
       contextCopy.drawImage(v, 0, 0, w, h);
 
       var effect = (String)(v.getAttribute('data-apply-effect')).split("|"); //
-      c.drawImage(v, 0, 0, w, h);
+      //c.drawImage(v, 0, 0, w, h);
 
       if (effect[0] == "grayscale") {
         //========================//
