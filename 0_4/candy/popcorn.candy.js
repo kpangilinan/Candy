@@ -2,20 +2,20 @@
 (function (Popcorn) {
 
   /**
-   * Webpages popcorn plug-in 
-   * DESCRIPTION
-   *
-   * @param {Object} options
-   * 
-   * Example:
-   var p = Popcorn('#video')
-   .candy({
-   id: "video", 
-   start: 5, // seconds
-   end: 15, // seconds
-   } )
-   *
-   */
+* Webpages popcorn plug-in
+* DESCRIPTION
+*
+* @param {Object} options
+*
+* Example:
+var p = Popcorn('#video')
+.candy({
+id: "video",
+start: 5, // seconds
+end: 15, // seconds
+} )
+*
+*/
   Popcorn.plugin("candy", (function () {
     //global variables:
     var video;
@@ -35,11 +35,10 @@
       var ch = video.height;
       canvasCopy.width = canvas.width = cw;
       canvasCopy.height = canvas.height = ch;
-video.lo
 
       video.addEventListener('play', function () {
-        video.addEventListener('loadeddata', function () {
-          draw(this, context, cw, ch); //continue to draw() until video has paused or ended
+	  	video.addEventListener('loadeddata', function () {
+        draw(this, context, cw, ch); //continue to draw() until video has paused or ended
         }, false);
       }, false);
     }, false);
@@ -49,11 +48,11 @@ video.lo
       contextCopy.drawImage(v, 0, 0, w, h);
 
       var effect = (String)(v.getAttribute('data-apply-effect')).split("|"); //
-      //c.drawImage(v, 0, 0, w, h);
+      c.drawImage(v, 0, 0, w, h);
 
       if (effect[0] == "grayscale") {
         //========================//
-        //    GRAYSCALE EFFECT    //
+        // GRAYSCALE EFFECT //
         //========================//
         var frame = contextCopy.getImageData(0, 0, w, h);
         var l = frame.data.length / 4;
@@ -70,7 +69,7 @@ video.lo
         c.putImageData(frame, 0, 0);
       } else if (effect[0] == "emboss") {
         //========================//
-        //      EMBOSS EFFECT     //
+        // EMBOSS EFFECT //
         //========================//
         var frame = contextCopy.getImageData(0, 0, w, h);
         var data = frame.data;
@@ -119,21 +118,21 @@ video.lo
 
       },
       /**
-       * @member candy 
-       * The start function will be executed when the currentTime 
-       * of the video  reaches the start time provided by the 
-       * options variable
-       */
+* @member candy
+* The start function will be executed when the currentTime
+* of the video reaches the start time provided by the
+* options variable
+*/
       start: function (event, options) {
         // make the <canvas> visible
         changeEffect(options.filter);
       },
       /**
-       * @member candy 
-       * The end function will be executed when the currentTime 
-       * of the video  reaches the end time provided by the 
-       * options variable
-       */
+* @member candy
+* The end function will be executed when the currentTime
+* of the video reaches the end time provided by the
+* options variable
+*/
       end: function (event, options) {
         // make the <canvas> invisible
         changeEffect();
