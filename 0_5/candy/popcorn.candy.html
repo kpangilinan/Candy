@@ -11,33 +11,23 @@
       .play() 
 	  .candy({
         start: 0, // seconds
-        end: 2, // seconds
-        filter: 'comic'
-      })
-      .candy({
-        start: 2, // seconds
-        end: 4, // seconds
-		filter: 'sepia' // video effect
+        end: 3, // seconds
+        filter: 'sepia'
       })
 	  .candy({
-        start: 4, // seconds
-        end: 6, // seconds
-		filter: 'greenscreen' // video effect
-      })
-	  .candy({
-        start: 6, // seconds
-        end: 8, // seconds
-		filter: 'negative' // video effect
-      })
-	  .candy({
-        start: 8, // seconds
+        start: 3, // seconds
         end: 10, // seconds
-		filter: 'bright|5' // video effect
+        filter: 'pointillize-e|5|10|5'
       })
 	  .candy({
         start: 12, // seconds
-        end: 14, // seconds
-		filter: 'bright|-6' // video effect
+        end: 16, // seconds
+        filter: 'pointillize-r|5|10|5'
+      })
+      .candy({
+        start: 16, // seconds
+        end: 20, // seconds
+        filter: 'negative'
       })
 
     }, false);
@@ -46,17 +36,14 @@
 </head>
 <body>
   <h1 id="qunit-header">Popcorn Candy Plug-in Demo</h1>
-  <p>Comic effect in affect from 0-2 seconds</p>
-  <p>Sepia effect in affect from 2-4 seconds</p>
-  <p>Greenscreen effect in affect from 4-6 seconds</p>
-  <p>Negative effect in affect from 6-8 seconds</p>
-  <p>Bright effect in affect from 8-10 seconds</p>
-  <p>Dark effect in affect from 12-14 seconds</p>
+  <p>Sepia effect in affect from 0-3 seconds</p>
+  <p>Pointillize effect in affect from 3-10 seconds</p>
+  <p>Pointillize effect in affect from 12-16 seconds</p>
+  <p>Negative effect in affect from 16-20 seconds</p>
   <div>
     <video id='video' 
       controls preload='none' 
-      width= '300px' height= '270px'
-      poster="../../../../popcorn-js/test/poster.png"> 
+      width= '300px' height= '270px'> 
 
       <source id='ogv'
         src="../../../../../videos/man.ogv"
