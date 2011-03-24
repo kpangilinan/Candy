@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Candy Plug-in Demo</title>
+  
+  <script src="../../../../popcorn-js/popcorn.js"></script>
+  <script src="popcorn.candy.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var p = Popcorn('#video')
+      .play() 
+
+      .candy({
+        start: 1, // seconds
+        end: 3, // seconds
+        filter: 'comic-bw'
+      })
+      
+      .candy({
+        start: 3, // seconds
+        end: 6, // seconds
+        filter: 'xray'
+      })
+      
+      .candy({
+        start: 6, // seconds
+        end: 10, // seconds
+        filter: 'rgb|100|0|0'
+      })
+      
+
+    }, false);
+
+  </script>
+</head>
+<body>
+  <h1 id="qunit-header">Popcorn Candy Plug-in Demo</h1>
+  <div>
+    <video id='video' 
+      controls preload='auto' 
+      width= '300px' height= '270px'> 
+
+      <source id='ogv'
+        src="../../../../../videos/man.ogv"
+        type='video/ogg; codecs="theora, vorbis"'> 
+
+      <p>Your user agent does not support the HTML5 Video element.</p> 
+
+    </video> 
+  </div>
+</body>
+</html>
