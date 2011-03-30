@@ -130,7 +130,7 @@
             r = frame.data[i * 4 + 0];
             g = frame.data[i * 4 + 1];
             b = frame.data[i * 4 + 2];
-            if (g < 160 && r < 160 && b < 160) {
+            if (g < 120 && r < 120 && b < 120) {
               frame.data[i * 4 + 0] = 0;
               frame.data[i * 4 + 1] = 0;
               frame.data[i * 4 + 2] = 0;
