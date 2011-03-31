@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Candy Plug-in Demo</title>
+  <style type="text/css">
+    body {text-align:center;background-color:grey;}
+	hr {margin:20px;}
+  </style>
+  <script src="../../../../../popcorn-js/popcorn.js"></script>
+  <script src="../popcorn.candy.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var p = Popcorn('#video')
+	  .candy({
+        start: 5, // seconds
+        end: 7, // seconds
+        filter: 'rotate|v'
+      })
+	  
+	  .candy({
+        start: 7, // seconds
+        end: 9, // seconds
+        filter: 'rotate|vh'
+      })
+	  .candy({
+        start: 9, // seconds
+        end: 11, // seconds
+        filter: 'rotate|h'
+      })
+	  
+	  .candy({
+        start: 13, // seconds
+        end: 14, // seconds
+        filter: 'rotate|v'
+      })
+	  
+	  .candy({
+        start: 14, // seconds
+        end: 15, // seconds
+        filter: 'rotate|vh'
+      })
+	  .candy({
+        start: 15, // seconds
+        end: 16, // seconds
+        filter: 'rotate|h'
+      })
+    }, false);
+
+  </script>
+</head>
+<body>
+  <h1 id="qunit-header">Popcorn: Candy Plug-in Demo</h1>
+  <blockquote>This demo demonstrates the <b>rotate</b> effect. <i>Note: It may freeze at times.</i></blockquote>
+  <hr/>
+  <div id='candy'>
+    <video id='video' 
+      autoplay
+      width= '300px' height= '180px'> 
+
+      <source id='ogv'
+        src="../../../../../../videos/man.ogv"
+        type='video/ogg; codecs="theora, vorbis"'> 
+
+      <p>Your user agent does not support the HTML5 Video element.</p> 
+    </video> 
+  </div>
+</body>
+</html>

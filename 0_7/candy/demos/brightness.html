@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Candy Plug-in Demo</title>
+  <style type="text/css">
+    body {text-align:center;background-color:grey;}
+	hr {margin:20px;}
+  </style>
+  <script src="../../../../../popcorn-js/popcorn.js"></script>
+  <script src="../popcorn.candy.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var p = Popcorn('#video')
+      .candy({
+        start: 0, // seconds
+        end: 2, // seconds
+        filter: 'bright|-5'
+      })
+	  
+	  .candy({
+        start: 2, // seconds
+        end: 4, // seconds
+        filter: 'bright|-4'
+      })
+	  
+	  .candy({
+        start: 4, // seconds
+        end: 6, // seconds
+        filter: 'bright|-3'
+      })
+	  
+	  .candy({
+        start: 6, // seconds
+        end: 8, // seconds
+        filter: 'bright|-2'
+      })
+	  
+	  .candy({
+        start: 8, // seconds
+        end: 10, // seconds
+        filter: 'bright|-1'
+      })
+	  
+	  .candy({
+        start: 10, // seconds
+        end: 14, // seconds
+        filter: 'bright|0'
+      })
+	  
+	  .candy({
+        start: 14, // seconds
+        end: 16, // seconds
+        filter: 'bright|1'
+      })
+	  
+	  .candy({
+        start: 16, // seconds
+        end: 18, // seconds
+        filter: 'bright|2'
+      })
+	  
+	  .candy({
+        start: 18, // seconds
+        end: 20, // seconds
+        filter: 'bright|3'
+      })
+	  
+	  .candy({
+        start: 20, // seconds
+        end: 22, // seconds
+        filter: 'bright|4'
+      })
+	  
+	  .candy({
+        start: 22, // seconds
+        end: 24, // seconds
+        filter: 'bright|5'
+      })
+    }, false);
+
+  </script>
+</head>
+<body>
+  <h1 id="qunit-header">Popcorn: Candy Plug-in Demo</h1>
+  <blockquote>This demo demonstrates the <b>bright</b> effect.</blockquote>
+  <hr/>
+  <div id='candy'>
+    <video id='video' 
+      autoplay
+      width= '300px' height= '180px'> 
+
+      <source id='ogv'
+        src="../../../../../../videos/man.ogv"
+        type='video/ogg; codecs="theora, vorbis"'> 
+
+      <p>Your user agent does not support the HTML5 Video element.</p> 
+    </video> 
+  </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Popcorn Candy API</title>
+  <link rel="stylesheet" href="../../../../popcorn-js/test/qunit/qunit.css" type="text/css" media="screen">
+  <script src="../../../../popcorn-js/test/qunit/qunit.js"></script>
+  <!-- 
+    do not move - this must be called immediately prior to 
+    popcorn-api-draft.js
+  -->
+  
+  <script src="../../../../popcorn-js/popcorn.js"></script>
+  <script src="popcorn.candy.js"></script>
+
+  <script src="popcorn.candy.unit.js"></script>
+</head>
+<body>
+  <h1 id="qunit-header">Popcorn Candy UI</h1>
+  <h2 id="qunit-banner"></h2>
+  <div id="qunit-testrunner-toolbar"></div>
+  <h2 id="qunit-userAgent"></h2>
+  <ol id="qunit-tests"></ol>
+  <div id="qunit-fixture">  </div>
+  
+  <video id='video' 
+      controls preload='auto' 
+      width= '300px' height= '270px'> 
+
+      <source id='ogv'
+        src="../../../../../videos/man.ogv"
+        type='video/ogg; codecs="theora, vorbis"'> 
+
+      <p>Your user agent does not support the HTML5 Video element.</p> 
+
+    </video> 
+  <div id="candydiv"></div>  
+</body>
+</html>

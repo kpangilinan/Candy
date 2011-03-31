@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Candy Plug-in Demo</title>
+  <style type="text/css">
+    body {text-align:center;background-color:grey;}
+	hr {margin:20px;}
+  </style>
+  <script src="../../../../../popcorn-js/popcorn.js"></script>
+  <script src="../popcorn.candy.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var p = Popcorn('#video')
+      .candy({
+        start: 0, // seconds
+        end: 4, // seconds
+        filter: 'modulate|5|5|h'
+      })
+	  
+	  .candy({
+        start: 4, // seconds
+        end: 8, // seconds
+        filter: 'modulate|5|5|v'
+      })
+	  .candy({
+        start: 8, // seconds
+        end: 9, // seconds
+        filter: 'modulate|10|10|v'
+      })
+	  .candy({
+        start: 9, // seconds
+        end: 10, // seconds
+        filter: 'modulate|10|10|h'
+      })
+	  .candy({
+        start: 10, // seconds
+        end: 11, // seconds
+        filter: 'modulate|2|5|v'
+      })
+	  .candy({
+        start: 11, // seconds
+        end: 12, // seconds
+        filter: 'modulate|2|5|h'
+      })
+	  .candy({
+        start: 12, // seconds
+        end: 13, // seconds
+        filter: 'modulate|2|5|v'
+      })
+	  .candy({
+        start: 13, // seconds
+        end: 14, // seconds
+        filter: 'modulate|2|5|h'
+      })
+	  .candy({
+        start: 14, // seconds
+        end: 15, // seconds
+        filter: 'modulate|2|5|v'
+      })
+	  .candy({
+        start: 15, // seconds
+        end: 16, // seconds
+        filter: 'modulate|2|5|h'
+      })
+	  .candy({
+        start: 16, // seconds
+        end: 17, // seconds
+        filter: 'modulate|2|5|v'
+      })
+	  .candy({
+        start: 17, // seconds
+        end: 18, // seconds
+        filter: 'modulate|2|5|h'
+      })
+	  .candy({
+        start: 18, // seconds
+        end: 19, // seconds
+        filter: 'modulate|2|5|v'
+      })
+	  .candy({
+        start: 19, // seconds
+        end: 20, // seconds
+        filter: 'modulate|2|5|h'
+      })
+    }, false);
+
+  </script>
+</head>
+<body>
+  <h1 id="qunit-header">Popcorn: Candy Plug-in Demo</h1>
+  <blockquote>This demo demonstrates the <b>modulate</b> effect.</blockquote>
+  <hr/>
+  <div id='candy'>
+    <video id='video' 
+      autoplay 
+      width= '300px' height= '180px'> 
+
+      <source id='ogv'
+        src="../../../../../../videos/man.ogv"
+        type='video/ogg; codecs="theora, vorbis"'> 
+
+      <p>Your user agent does not support the HTML5 Video element.</p> 
+    </video> 
+  </div>
+</body>
+</html>
