@@ -13,12 +13,13 @@
    id: "video",
    start: 5, // seconds
    end: 15, // seconds
+   target : 'candydiv',
    filter: 'FILTERNAME|[OPTIONS]' // select filter
    } )
    *
    */
 
-  var videoIn;
+  var videoIn, videoB;
   var canvas, videoOut;
   var bgCanvas, bgContext;
 
@@ -29,6 +30,11 @@
   var l;
 
   var w, h;
+  
+  //used in Multi-Channel effect
+  var posX;
+  var posY;
+  var multiON=false;
 
   //used in Modulate effect 
   var trap = 0;
@@ -61,8 +67,15 @@
 
     bgCanvas = document.createElement('canvas');
     bgContext = bgCanvas.getContext('2d');
-
-    document.body.appendChild(canvas);
+    
+    videoB = document.createElement('video');
+    videoB.src = "http://matrix.senecac.on.ca/~kpangilinan/candy/videos/bunny.ogv";
+    videoB.autoplay = "autoplay";
+	videoB.loop = "loop";
+	videoB.volume = 0;
+    videoB.style.display = "none";
+    
+    document.body.appendChild(videoB);
 
     w = canvas.width = bgCanvas.width = videoIn.width;
     h = canvas.height = bgCanvas.height = videoIn.height;
@@ -116,6 +129,7 @@
           c.scale(-1, -1);
           c.drawImage(v, -w, -h, w, h)
         }
+        //if no option is used, video does not rotate
         c.scale(1, 1);
       } else if (effect[0] == "comic") {
         //==============//
@@ -125,35 +139,29 @@
           r = frame.data[i * 4 + 0];
           g = frame.data[i * 4 + 1];
           b = frame.data[i * 4 + 2];
-          if (g < 125 && r < 125 && b < 125) {
-            frame.data[i * 4 + 0] = 0;
-            frame.data[i * 4 + 1] = 0;
-            frame.data[i * 4 + 2] = 0;
+          if (effect[1] == "bw"){
+        	  if (g < 125 && r < 125 && b < 125) {
+                  frame.data[i * 4 + 0] = 0;
+                  frame.data[i * 4 + 1] = 0;
+                  frame.data[i * 4 + 2] = 0;
+                } else {
+                  frame.data[i * 4 + 0] = 255;
+                  frame.data[i * 4 + 1] = 255;
+                  frame.data[i * 4 + 2] = 255;
+                }
           }
-          if (g >= 125 && r >= 125 && b >= 125) {
-            frame.data[i * 4 + 0] = 255;
-            frame.data[i * 4 + 1] = 255;
-            frame.data[i * 4 + 2] = 255;
-          }
-        }
-        c.putImageData(frame, 0, 0);
-      } else if (effect[0] == "comic-bw") {
-        //============================//
-        // COMIC BLACK & WHITE EFFECT //
-        //============================//
-        for (var i = 0; i < l; i++) {
-          r = frame.data[i * 4 + 0];
-          g = frame.data[i * 4 + 1];
-          b = frame.data[i * 4 + 2];
-          if (g < 120 && r < 120 && b < 120) {
-            frame.data[i * 4 + 0] = 0;
-            frame.data[i * 4 + 1] = 0;
-            frame.data[i * 4 + 2] = 0;
-          } else {
-            frame.data[i * 4 + 0] = 255;
-            frame.data[i * 4 + 1] = 255;
-            frame.data[i * 4 + 2] = 255;
-          }
+          else{
+        	  if (g < 125 && r < 125 && b < 125) {
+                  frame.data[i * 4 + 0] = 0;
+                  frame.data[i * 4 + 1] = 0;
+                  frame.data[i * 4 + 2] = 0;
+                }
+                if (g >= 125 && r >= 125 && b >= 125) {
+                  frame.data[i * 4 + 0] = 255;
+                  frame.data[i * 4 + 1] = 255;
+                  frame.data[i * 4 + 2] = 255;
+                }
+          } //DEFAULT: NORMAL COMIC
         }
         c.putImageData(frame, 0, 0);
       } else if (effect[0] == "sepia") {
@@ -191,9 +199,9 @@
         c.globalAlpha = 0.05;
         c.drawImage(v, 0, 0, w, h);
         c.globalAlpha = 1;
-      } else if (effect[0] == "multi") {
+      } else if (effect[0] == "divide") {
         //===================//
-        //    MULTI EFFECT   //
+        //   DIVIDE EFFECT   //
         //===================//
         var div = parseFloat(effect[1]);
         var a = w / div;
@@ -203,7 +211,33 @@
             c.drawImage(v, x * a, y * b, a, b);
           }
         }
-      } else if (effect[0] == "negative") {
+      } else if (effect[0] == "multi-channel") {
+          //======================//
+          // MULTI-CHANNEL EFFECT //
+          //======================//
+    	  if (multiON==false){
+    		  videoB.src = effect[1];
+    		  multiON=true;
+    	  }
+          if (effect[2] == "tr"){
+        	  posX = w/2;
+        	  posY = 0;
+          }
+          else if (effect[2] == "bl"){
+        	  posX = 0;
+        	  posY = h/2;
+          }
+          else if (effect[2] == "br"){
+        	  posX = w/2;
+        	  posY = h/2;
+          }
+          else {
+        	  posX = 0;
+        	  posY = 0;
+          }
+          c.drawImage(v, 0, 0, w, h);
+          c.drawImage(videoB, posX, posY, w/2, h/2);
+        } else if (effect[0] == "negative") {
         //=================//
         // NEGATIVE EFFECT //
         //=================//
@@ -297,7 +331,6 @@
             } else {
               c.fillRect(x + j1, y + j2, size, size); //DEFAULT: rectangle
             }
-
           }
         }
       } else if (effect[0] == "pixelate") {
@@ -314,7 +347,32 @@
             c.fillRect(x, y, size, size);
           }
         }
-      } else if (effect[0] == "noise") {
+      } else if (effect[0] == "old-tv") {
+          //=================//
+          //   OLD-TV EFFECT  //
+          //=================//
+          jitter = 30;
+          //c.drawImage(v, 0, 0, w, h);
+          for (var i = 0; i < l; i++) {
+              r = frame.data[i * 4 + 0] * .3;
+              g = frame.data[i * 4 + 1] * .59;
+              b = frame.data[i * 4 + 2] * .11;
+              var grayscale = r + g + b;
+
+              frame.data[i * 4 + 0] = frame.data[i * 4 + 1] = frame.data[i * 4 + 2] = grayscale;
+          }
+          c.putImageData(frame, 0, 0);
+          for (var x = 0; x < w + jitter; x += jitter) {
+            for (var y = 0; y < h + jitter; y += jitter) {
+              //pixelNoise = noise2 + Math.random() * noise;
+              c.fillStyle = 'rgb(0,0,0)';
+
+              j1 = (-jitter) + (Math.random() * (jitter));
+              j2 = (-jitter) + (Math.random() * (jitter));
+              c.fillRect(x + j1, y + j2, 1, 1);
+            }
+          }
+        } else if (effect[0] == "noise") {
         //=================//
         //   NOISE EFFECT  //
         //=================//
@@ -407,30 +465,21 @@
       manifest: {
         about: {
           name: "Popcorn Candy Plugin",
-          version: "0.7",
+          version: "0.8",
           author: "@kpangilinan",
           website: "kpangilinan.wordpress.com"
         },
         options: {
-          start: {
-            elem: 'input',
-            type: 'text',
-            label: 'In'
-          },
-          end: {
-            elem: 'input',
-            type: 'text',
-            label: 'Out'
-          },
-          filter: {
-            elem: 'input',
-            type: 'text',
-            label: 'Text'
-          }
+          start: {elem: 'input', type: 'text',label: 'In'},
+          end: {elem: 'input',type: 'text',label: 'Out'},
+          target : 'candy-container',
+          filter: {elem: 'input',type: 'text',label: 'Text'}
         }
       },
       _setup: function (options) {
-
+		if ( document.getElementById( options.target ) ) {
+          document.getElementById( options.target ).appendChild(canvas); // add the widget's div to the target div
+        }
       },
       /**
        * @member candy
@@ -451,6 +500,7 @@
       end: function (event, options) {
         // make the <canvas> invisible
         changeEffect(); //back to normal video
+        multiON=false;
       }
 
     };

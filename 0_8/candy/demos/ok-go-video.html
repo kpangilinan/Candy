@@ -14,19 +14,7 @@
       .candy({
         start: 0, // seconds
         end: 5, // seconds
-        filter: 'grayscale'
-      })
-	  
-	  .candy({
-        start: 5, // seconds
-        end: 10, // seconds
-        filter: 'xray'
-      })
-	  
-	  .candy({
-        start: 10, // seconds
-        end: 15, // seconds
-        filter: 'comic-bw'
+        filter: 'multi|2'
       })
     }, false);
 
@@ -34,11 +22,17 @@
 </head>
 <body>
   <h1 id="qunit-header">Popcorn: Candy Plug-in Demo</h1>
-  <blockquote>This demo demonstrates <b>grayscale</b>, <b>xray</b>, and <b>comic-bw</b> effects.</blockquote>
+  <blockquote>OK-GO Music Video Demo with HTML5</blockquote>
   <hr/>
   <div id='candy'>
-    <video id='video' width= '300px' height= '180px' autoplay> 
-      <source id='ogv' src="../../../../../../videos/man.ogv" type='video/ogg; codecs="theora, vorbis"'> 
+    <video id='video' 
+      autoplay
+      width= '900px' height= '600px'> 
+
+      <source id='ogv'
+        src="http://zenit.senecac.on.ca/~ecl500_111a12/wtf_greenscreen.ogv"
+        type='video/ogg; codecs="theora, vorbis"'> 
+
       <p>Your user agent does not support the HTML5 Video element.</p> 
     </video> 
   </div>

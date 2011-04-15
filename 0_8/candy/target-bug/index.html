@@ -7,62 +7,41 @@
 	hr {margin:20px;}
   </style>
   <script src="../../../../../popcorn-js/popcorn.js"></script>
-  <script src="../popcorn.candy.js"></script>
+  <script src="popcorn.candy.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var p = Popcorn('#video')
-	  .candy({
-        start: 2, // seconds
+      .candy({
+        start: 0, // seconds
         end: 4, // seconds
-        filter: 'multi|2'
+        target: 'candydiv',
+        filter: 'emboss'
       })
 	  
 	  .candy({
         start: 4, // seconds
-        end: 6, // seconds
-        filter: 'multi|3'
-      })
-	  
-	  .candy({
-        start: 6, // seconds
         end: 8, // seconds
-        filter: 'multi|4'
+        target: 'candydiv',
+        filter: 'comic'
       })
 	  
 	  .candy({
         start: 8, // seconds
-        end: 10, // seconds
-        filter: 'multi|8'
+        end: 12, // seconds
+        target: 'candydiv',
+        filter: 'sepia'
       })
-	  
 	  .candy({
-        start: 10, // seconds
-        end: 14, // seconds
-        filter: 'multi|9'
-      })
-	  
-	  .candy({
-        start: 14, // seconds
+        start: 12, // seconds
         end: 16, // seconds
-        filter: 'multi|10'
+        target: 'candydiv',
+        filter: 'blur'
       })
-	  
 	  .candy({
         start: 16, // seconds
-        end: 18, // seconds
-        filter: 'multi|20'
-      })
-	  
-	  .candy({
-        start: 18, // seconds
         end: 20, // seconds
-        filter: 'multi|21'
-      })
-	  
-	  .candy({
-        start: 20, // seconds
-        end: 24, // seconds
-        filter: 'multi|22'
+        target: 'candydiv',
+        filter: 'negative'
       })
     }, false);
 
@@ -70,7 +49,7 @@
 </head>
 <body>
   <h1 id="qunit-header">Popcorn: Candy Plug-in Demo</h1>
-  <blockquote>This demo demonstrates the <b>multi</b> effect.</blockquote>
+  <blockquote>This demo demonstrates the <b>emboss</b>, <b>comic</b>, <b>sepia</b>, <b>blur</b>, and <b>negative</b> effect.</blockquote>
   <hr/>
   <div id='candy'>
     <video id='video' 
@@ -84,5 +63,9 @@
       <p>Your user agent does not support the HTML5 Video element.</p> 
     </video> 
   </div>
+  <p>BEFORE</p>
+  <div id="candydiv">
+  </div>
+  <p>AFTER</p>
 </body>
 </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Candy Plug-in Demo</title>
+  <style type="text/css">
+    body {text-align:center;background-color:grey;}
+	hr {margin:20px;}
+  </style>
+  <script src="../../../../../popcorn-js/popcorn.js"></script>
+  <script src="../popcorn.candy.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var p = Popcorn('#video')
+	  .candy({
+        start: 0, // seconds
+        end: 10, // seconds
+        filter: 'multi-channel|http://matrix.senecac.on.ca/~kpangilinan/candy/videos/bunny.ogv|tr'
+      })
+	  .candy({
+        start: 12, // seconds
+        end: 22, // seconds
+        filter: 'multi-channel|http://matrix.senecac.on.ca/~kpangilinan/candy/videos/indy500.ogv|bl'
+      })
+    }, false);
+
+  </script>
+</head>
+<body>
+  <h1 id="qunit-header">Popcorn: Candy Plug-in Demo</h1>
+  <blockquote>This demo demonstrates the <b>multi-channel</b> effect.</blockquote>
+  <hr/>
+  <div id='candy'>
+    <video id='video' 
+      autoplay
+      width= '500px' height= '380px'> 
+
+      <source id='ogv'
+        src="../../../../../../videos/man.ogv"
+        type='video/ogg; codecs="theora, vorbis"'> 
+
+      <p>Your user agent does not support the HTML5 Video element.</p> 
+    </video> 
+  </div>
+</body>
+</html>
