@@ -13,6 +13,7 @@
    id: "video",
    start: 5, // seconds
    end: 15, // seconds
+   target : 'candydiv',
    filter: 'FILTERNAME|[OPTIONS]' // select filter
    } )
    *
@@ -75,7 +76,6 @@
     videoB.style.display = "none";
     
     document.body.appendChild(videoB);
-    document.body.appendChild(canvas);
 
     w = canvas.width = bgCanvas.width = videoIn.width;
     h = canvas.height = bgCanvas.height = videoIn.height;
@@ -470,25 +470,16 @@
           website: "kpangilinan.wordpress.com"
         },
         options: {
-          start: {
-            elem: 'input',
-            type: 'text',
-            label: 'In'
-          },
-          end: {
-            elem: 'input',
-            type: 'text',
-            label: 'Out'
-          },
-          filter: {
-            elem: 'input',
-            type: 'text',
-            label: 'Text'
-          }
+          start: {elem: 'input', type: 'text',label: 'In'},
+          end: {elem: 'input',type: 'text',label: 'Out'},
+          target : 'candy-container',
+          filter: {elem: 'input',type: 'text',label: 'Text'}
         }
       },
       _setup: function (options) {
-
+		if ( document.getElementById( options.target ) ) {
+          document.getElementById( options.target ).appendChild(canvas); // add the widget's div to the target div
+        }
       },
       /**
        * @member candy
